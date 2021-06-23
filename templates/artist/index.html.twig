@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	<div class="d-flex my-5 justify-content-center">
+		{% for name, color in categories %}
+			<button type="buton" class="btn btn-outline-{{ color }}">{{ name }}</button>
+		{% endfor %}
+	</div>
 	<div class="row">
 		{% for artist in 0..25 %}
 			<div class="col-4">
