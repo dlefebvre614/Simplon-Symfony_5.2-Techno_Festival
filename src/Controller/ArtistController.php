@@ -13,15 +13,20 @@ class ArtistController extends AbstractController
      */
     public function index(): Response
     {
+        $border_color = ["secondary", "danger", "info", "warning", "light", "success"];
+        $bg_color = ["secondary", "danger", "info", "warning"];
+
         return $this->render('artist/index.html.twig', [
             'controller_name' => 'ArtistController',
+            'border_colors' => $border_color,
+            'bg_colors' => $bg_color,
         ]);
     }
 
     /**
-     * @Route("/artist/{id<\d+})", name="artist")
+     * @Route("/artist/{id<\d+})", name="show_artist")
      */
-    public function artist(int $id): Response
+    public function show(int $id): Response
     {
         return $this->render('artist/artist.html.twig', [
             'controller_name' => 'ArtistController',

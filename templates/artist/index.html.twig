@@ -1,7 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArtistController!{% endblock %}
+{% block title %}Hello ArtistController!
+{% endblock %}
 
 {% block body %}
-affichage de la liste des articles
+	<div class="row">
+		{% for artist in 0..25 %}
+			<div class="col-4">
+				<div class="card mb-3 {{ " border-" ~ random(border_colors) }}" style="max-width: 20rem;">
+					<div class="card-header align-self-end">
+						<span class="badge rounded-pill {{ " bg-" ~ random(bg_colors) }}">Lorem, ipsum.</span>
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Artist n°{{ loop.index }}</h4>
+						<p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing ...</p>
+						<div>
+							<small>
+								<a href="{{ path('show_artist', {id: loop.index} ) }}">Découvrir l'artiste</a>
+							</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
