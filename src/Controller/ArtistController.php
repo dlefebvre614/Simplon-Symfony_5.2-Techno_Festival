@@ -45,6 +45,7 @@ class ArtistController extends AbstractController
             'Détroit' => 'success',
         ];
         // recupérer les catégories du controleur category
+        
 
         return $this->render('artist/index.html.twig', [
             'controller_name' => 'ArtistController',
