@@ -5,10 +5,9 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Technonite</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
@@ -17,13 +16,13 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Agenda</a>
+						<a class="nav-link" href="{{ path('agenda_home') }}">Agenda</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/artist">Artistes</a>
+						<a class="nav-link" href="{{ path('list_artist') }}">Artistes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Billeterie</a>
+						<a class="nav-link" href="{{ path('ticket_home') }}">Billeterie</a>
 					</li>
 					<!--<li class="nav-item">
 										          <a class="nav-link" href="#">Connexion</a>

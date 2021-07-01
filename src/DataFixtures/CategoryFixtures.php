@@ -27,19 +27,20 @@ class CategoryFixtures extends Fixture
             $category = new Category();
             $category->setLabel($name);
             $manager->persist($category);
-        }
 
-        for ($i = 1; $i < rand(3, 15); $i++) {
-            $artist = new Artist();
-            $artist->setName('DJ ' . $facker->firstname())
-                ->setDescription($facker->paragraphs(3, true))
-                ->setCategory($category);
 
-            if ($concert < 10 && rand(0, 5) < 2) {
-                $artist->setConcert($concert);
-                $concert++;
+            for ($i = 1; $i < rand(3, 15); $i++) {
+                $artist = new Artist();
+                $artist->setName('DJ ' . $facker->firstname())
+                    ->setDescription($facker->paragraphs(3, true))
+                    ->setCategory($category);
+
+                if ($concert < 10 && rand(0, 8) <= 2) {
+                    $artist->setConcert($concert);
+                    $concert++;
+                }
+                $manager->persist($artist);
             }
-            $manager->persist($artist);
         }
         $manager->flush();
     }

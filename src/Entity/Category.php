@@ -20,6 +20,8 @@ class Category
      */
     private $id;
 
+    private string $color;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -97,6 +99,26 @@ class Category
                 $artist->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of color
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set the value of color
+     *
+     * @return  self
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
 
         return $this;
     }

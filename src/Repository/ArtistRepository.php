@@ -47,4 +47,16 @@ class ArtistRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByConcert()
+    {
+        return $this->createQueryBuilder('a')
+        ->select('a.id','a.concert', 'a.name')
+            ->andWhere('a.concert IS NOT NULL')
+            ->orderby('a.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 }
