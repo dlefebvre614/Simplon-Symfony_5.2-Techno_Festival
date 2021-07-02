@@ -1,53 +1,32 @@
-{# {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/header.css') }}">
-{% endblock %} #}
-<div>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Technonite</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarColor01">
-				<ul class="navbar-nav me-auto">
-					<li class="nav-item">
-						<a class="nav-link active" href="/">Accueil
-							<span class="visually-hidden">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('agenda_home') }}">Agenda</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('list_artist') }}">Artistes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('ticket_home') }}">Billeterie</a>
-					</li>
-					<!--<li class="nav-item">
-										          <a class="nav-link" href="#">Connexion</a>
-										        </li>-->
-
-					{% if not is_granted("ROLE_USER") %}
-
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_register') }}">Enregistrement</a>
-						</li>
-					{% else %}
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-						</li>
-					{% endif %}
-
-					<!--</li>
-												        <li class="nav-item">
-										          <a class="nav-link" href="#">Enregistrement</a>
-										        </li>-->
-				</ul>
-			</div>
-		</div>
-	</nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<a class="navbar-brand" href="{{ path('page_home') }}">Technonite</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('page_home') }}">Accueil</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('agenda_home') }}">Agenda</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('list_artist') }}">Artistes</a>
+			</li>
+			{% if not app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href={{ path('app_login') }}>Connexion</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href={{ path('app_register') }}>Enregistrement</a>
+				</li>
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('ticket_home') }}">Billeterie</a>
+				</li>
+				<a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
+			{% endif %}
+		</ul>
+	</div>
+</nav>
